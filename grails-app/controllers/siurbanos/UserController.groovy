@@ -31,7 +31,10 @@ class UserController {
             render "No se loguio"
         }
     }
-
+    def logout(){
+        session.user = null
+        redirect (uri:'/')
+    }
     def show(User userInstance) {
         respond userInstance
     }

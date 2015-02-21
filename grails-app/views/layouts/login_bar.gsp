@@ -55,6 +55,13 @@
                                 </ul>
                             </li>
                         </ul>-->
+                        <g:if test="${session.user}">
+                            <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/logout/">
+                            
+                            <button type="submit" class="btn btn-default">Log out</button>
+                            </form>				
+                        </g:if>
+                        <g:else>
                         <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/login/">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="id" placeholder="Username">
@@ -64,6 +71,7 @@
                             </div>
                             <button type="submit" class="btn btn-default">Log In</button>
                         </form>
+                        </g:else>
                     </div>
                 </center>
             </div>
