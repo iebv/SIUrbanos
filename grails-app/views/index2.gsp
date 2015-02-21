@@ -11,18 +11,18 @@
                     <h3 class="panel-title">Sign in</h3>
                 </div>
                 <div class="panel-body">
-                    <form method="post" class="formit" action="/SIUrbanos/index2/">
+                    <form method="post" class="formit" action="/SIUrbanos/user/save">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="User Name" name="user" type="text">
+                                <input class="form-control" placeholder="id" name="idUser" type="text">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="text">
+                                <input class="form-control" placeholder="Name" name="userName" type="text" value="">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
                             </div>
-
+                            
                             <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
                         </fieldset>
                     </form>

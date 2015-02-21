@@ -55,9 +55,9 @@
                                 </ul>
                             </li>
                         </ul>-->
-                        <form class="navbar-form navbar-right" role="search">
+                        <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/login/">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="username" placeholder="Username">
+                                <input type="text" class="form-control" name="id" placeholder="Username">
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="password" placeholder="Password">
