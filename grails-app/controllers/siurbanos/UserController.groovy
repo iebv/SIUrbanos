@@ -33,6 +33,7 @@ class UserController {
     }
     def logout(){
         session.user = null
+        session.invalidate()
         redirect (uri:'/')
     }
     def show(User userInstance) {
