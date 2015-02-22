@@ -8,13 +8,13 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sign in</h3>
+                    <h3 class="panel-title">Register</h3>
                 </div>
                 <div class="panel-body">
                     <form method="post" class="formit" action="/SIUrbanos/user/save">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="id" name="idUser" type="text">
+                                <input class="form-control" placeholder="Username" name="idUser" type="text">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Name" name="userName" type="text" value="">
@@ -23,7 +23,7 @@
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
                             </div>
                             
-                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
+                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Register">
                         </fieldset>
                     </form>
                 </div>

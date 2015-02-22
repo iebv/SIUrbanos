@@ -25,10 +25,11 @@ class UserController {
         if(user){
             session.user = user
             flash.message = "Hello ${user.userName}!"
-            render "Se loguio"      
+            render "Bienvenido ${user.userName}"      
         }else{
-            flash.message = "Sorry, ${params.id}. Please try again."
-            render "No se loguio"
+            flash.message = "El usuario o la contraseña son incorrectos"
+            redirect(uri:'/')
+            //render "El usuario o la contraseña son incorrectos"
         }
     }
     def logout(){

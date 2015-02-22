@@ -17,14 +17,14 @@
 			</ul>
 		</div>
 		<div id="list-user" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1>Lista de Usuarios</h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
-			<table>
+                                <table class="table"  style="background: #006dba" >
 			<thead>
 					<tr>
-					
+                                            
 						<g:sortableColumn property="idUser" title="${message(code: 'user.idUser.label', default: 'Id User')}" />
 					
 						<g:sortableColumn property="userName" title="${message(code: 'user.userName.label', default: 'User Name')}" />
@@ -37,7 +37,7 @@
 					
 					</tr>
 				</thead>
-				<tbody>
+                                <tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					

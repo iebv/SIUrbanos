@@ -72,6 +72,9 @@
                             <button type="submit" class="btn btn-default">Log In</button>
                         </form>
                         </g:else>
+                        <g:if test="${flash.message}">
+                            <div class="message" role="status">${flash.message}</div>
+                        </g:if>
                     </div>
                 </center>
             </div>
