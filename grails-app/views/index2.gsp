@@ -21,7 +21,7 @@
                     <form method="post" class="formit" action="/SIUrbanos/user/save">
                         <fieldset>
                             <div class="form-group">
-                                <p style="font-size: 12px;">El ID es la cedula del ciudadano</p>
+                                <p style="font-size: 12px;">El ID es la cédula del ciudadano</p>
                                 <input class="form-control" placeholder="ID" name="idUser" type="text">
                                 
                             </div>

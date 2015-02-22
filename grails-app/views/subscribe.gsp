@@ -50,7 +50,7 @@
             <div class="form-group">
                 <label class="control-label col-xs-3">Telefono:</label>
                 <div class="col-xs-9">
-                    <input type="tel" placeholder="Telefono" class="form-control">
+                    <input type="tel" placeholder="Teléfono" class="form-control">
                 </div>
             </div>
             <div class="form-group">
