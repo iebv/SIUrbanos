@@ -7,7 +7,7 @@
 		<g:message code="user.idUser.label" default="Id User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="idUser" required="" value="${userInstance?.idUser}"/>
+	<g:textField name="idUser" maxlength="10" pattern="${userInstance.constraints.idUser.matches}" required="" value="${userInstance?.idUser}"/>
 
 </div>
 
@@ -25,7 +25,7 @@
 		<g:message code="user.password.label" default="Password" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="password" name="password" required="" value="${userInstance?.password}"/>
+	<g:field type="password" name="password" maxlength="15" required="" value="${userInstance?.password}"/>
 
 </div>
 

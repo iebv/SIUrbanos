@@ -11,6 +11,13 @@
                     <h3 class="panel-title">Register</h3>
                 </div>
                 <div class="panel-body">
+                    <g:hasErrors bean="${userInstance}">
+                        <ul class="errors" role="alert">
+                            <g:eachError bean="${userInstance}" var="error">
+                                <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>><g:message error="${error}"/></li>
+                            </g:eachError>
+                        </ul>
+                    </g:hasErrors>
                     <form method="post" class="formit" action="/SIUrbanos/user/save">
                         <fieldset>
                             <div class="form-group">
@@ -22,7 +29,7 @@
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="">
                             </div>
-                            
+
                             <input class="btn btn-primary btn-lg btn-block" type="submit" value="Register">
                         </fieldset>
                     </form>
