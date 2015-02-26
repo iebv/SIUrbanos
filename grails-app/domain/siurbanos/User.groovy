@@ -6,7 +6,7 @@ class User {
     String idUser
     String userName
     String password
-    boolean rol
+    String rol = "user" //Administrador 1 usuario 0
     Card card
     
     static constraints = {
@@ -17,4 +17,6 @@ class User {
         card(nullable:true)
         
     }
+    
+   
 }

@@ -10,6 +10,9 @@ class UserController {
     static scaffold = User
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def beforeInterceptor = [action:this.&auth, 
+                           except:["login", "logout","save"]]
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
@@ -17,8 +20,8 @@ class UserController {
     
     def login() {
         println User.list()
-        println params.id
-        println params.password
+        println User.list()[0].rol
+        println User.list()[1].rol
         
         def user = User.findAll("from User as u where u.idUser = '${params.id}' and u.password = '${params.password}'")
         println user
@@ -45,6 +48,18 @@ class UserController {
         respond new User(params)
     }
 
+    
+    def auth() {
+        String usuario = session?.user?.rol.toString()
+        usuario = usuario.substring(1,usuario.size()-1)
+        println usuario
+        if( !(usuario== "admin") ){
+            flash.message = "Acceso denegado."
+            redirect(uri:"/")
+            return false
+        }
+        
+  }
     @Transactional
     def save(User userInstance) {
         if (userInstance == null) {
@@ -58,7 +73,7 @@ class UserController {
         }
 
         userInstance.save flush:true
-        redirect view: 'list'
+        redirect (action:'login', params:[id:params.idUser, password: params.password])
 //        request.withFormat {
 //            form multipartForm {
 //                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
