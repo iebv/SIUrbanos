@@ -20,11 +20,11 @@ class UserController {
     
     def login() {
         println User.list()
-        println User.list()[0].rol
-        println User.list()[1].rol
+        println User.list()[0].card.idCard
+        println Card.list()
         
         def user = User.findAll("from User as u where u.idUser = '${params.id}' and u.password = '${params.password}'")
-        println user
+        
         if(user){
             session.user = user
             flash.message = "Hello ${user.userName}!"
@@ -73,7 +73,7 @@ class UserController {
         }
 
         userInstance.save flush:true
-        redirect (action:'login', params:[id:params.idUser, password: params.password])
+        redirect (action:'login', params:[id:params.idUser, password: params.password]) //Cuando se registra un usuario se redirecciona al login
 //        request.withFormat {
 //            form multipartForm {
 //                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])

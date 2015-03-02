@@ -1,12 +1,12 @@
 package siurbanos
 
 class Card {
-    String IDCard //es unico, tok hacerlo
-    double amount
-    //static hasOne = [user:User]
+    String idCard //es unico, tok hacerlo
+    double amount = 0
+    static belongsTo = [user:User]
     static hasMany = [recharges:Recharge,routes:Route]
     static constraints = {
-        IDCard (unique: true)
+        idCard (unique: true)
         //user (unique: true)
     }
 }
