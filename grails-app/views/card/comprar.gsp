@@ -16,7 +16,7 @@
             <div><img src="${resource(dir:"images", file: "tarjeta.png") }"/></div>
         </div>
 
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="post" action="/SIUrbanos/card/save">
 <!--            <div class="form-group">
                 <label class="control-label col-xs-3">Email:</label>
                 <div class="col-xs-9">
@@ -105,12 +105,13 @@
                 </div>
             </div>
             <br>
+            <g:field type="hidden" value="${params.idUser}" name="idUser"/>
             <div class="form-group">
                 <div class="col-xs-offset-3 col-xs-9">
                     <input type="submit" value="Enviar" class="btn btn-primary">
-                    <input type="reset" value="Limpiar" class="btn btn-default">
                 </div>
             </div>
+            
         </form>
 
 

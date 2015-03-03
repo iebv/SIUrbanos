@@ -7,7 +7,7 @@ class User {
     String userName
     String password
     String rol = "user" //Administrador 1 usuario 0
-    Card card
+    Card card 
     
     static constraints = {
         idUser(blank:false, size: 1..10, matches: "[1-9][0-9]*", unique:true)

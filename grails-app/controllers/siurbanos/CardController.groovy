@@ -9,12 +9,15 @@ import grails.transaction.Transactional
 class CardController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
+    
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Card.list(params), model:[cardInstanceCount: Card.count()]
     }
-
+    
+    def comprar(){
+        
+    }
     def show(Card cardInstance) {
         respond cardInstance
     }
@@ -24,26 +27,16 @@ class CardController {
     }
 
     @Transactional
-    def save(Card cardInstance) {
-        if (cardInstance == null) {
-            notFound()
-            return
-        }
-
-        if (cardInstance.hasErrors()) {
-            respond cardInstance.errors, view:'create'
-            return
-        }
-
-        cardInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'card.label', default: 'Card'), cardInstance.id])
-                redirect cardInstance
-            }
-            '*' { respond cardInstance, [status: CREATED] }
-        }
+    def save() {
+        def usuario = User.find("from User as u where u.idUser = '${params.idUser}'")
+        def idCard = usuario.idUser
+        def card = new Card(idCard: idCard)
+        card.save(flush:true)
+        card.recargar(20000)
+        card.recargar(10000)
+        println card
+        usuario.card = card
+        usuario.save(flush:true)
     }
 
     def edit(Card cardInstance) {

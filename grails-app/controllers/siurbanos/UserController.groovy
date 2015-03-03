@@ -19,16 +19,18 @@ class UserController {
     }
     
     def login() {
-        println User.list()
-        println User.list()[0].card.idCard
+        
         println Card.list()
         
-        def user = User.findAll("from User as u where u.idUser = '${params.id}' and u.password = '${params.password}'")
         
+        def user = User.find("from User as u where u.idUser = '${params.id}' and u.password = '${params.password}'")
+   
         if(user){
             session.user = user
             flash.message = "Hello ${user.userName}!"
-            render "Bienvenido ${user.userName}"      
+            if(user.card == null){ 
+                forward(controller:"card", action:"comprar", params:[idUser: user.idUser]) //Es como redirect pero pcultando la url de los parametros
+            } else render "Bienvenido ${user.userName}"      
         }else{
             flash.message = "El usuario o la contraseña son incorrectos"
             redirect(uri:'/')
@@ -50,9 +52,8 @@ class UserController {
 
     
     def auth() {
-        String usuario = session?.user?.rol.toString()
-        usuario = usuario.substring(1,usuario.size()-1)
-        println usuario
+        String usuario = session?.user?.rol
+     
         if( !(usuario== "admin") ){
             flash.message = "Acceso denegado."
             redirect(uri:"/")

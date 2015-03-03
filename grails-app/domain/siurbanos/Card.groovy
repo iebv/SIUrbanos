@@ -9,4 +9,9 @@ class Card {
         idCard (unique: true)
         //user (unique: true)
     }
+    
+    def recargar(monto){
+        this.addToRecharges(new Recharge (dateRecharge: new Date(), amountRecharge: monto)) 
+        this.amount += monto
+    }
 }
