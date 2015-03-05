@@ -5,6 +5,8 @@ class Route {
     Date date
     static belongsTo = [card:Card]
     static constraints = {
-        routeName blank:false
+        //El nombre de la ruta no puede ser nulo y estara definido en  determinadas rutas que le demos.
+        routeName (blank:false,inList:["14","c11"])
+        
     }
 }

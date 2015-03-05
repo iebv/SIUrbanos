@@ -29,7 +29,7 @@ class UserController {
             session.user = user
             flash.message = "Hello ${user.userName}!"
             if(user.card == null && user.rol != "admin"){ 
-                forward(controller:"card", action:"comprar", params:[idUser: user.idUser]) //Es como redirect pero pcultando la url de los parametros
+                forward(controller:"card", action:"comprar", params:[idUser: user.idUser]) //Es como redirect pero ocultando la url de los parametros
             } else render "Bienvenido ${user.userName}"      
         }else{
             flash.message = "El usuario o la contraseña son incorrectos"
