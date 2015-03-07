@@ -21,9 +21,8 @@
             <div class="container">
                 <div class="jumbotron text-center">
                     <h4>Historial de recargas</h4>
-                    <a <button href="${createLink(controller:'recharge', action:'historialRecargas')}"/>>
+                    <a href="${createLink(controller:'recharge', action:'historialRecargas')}">
                         <img src="${resource(dir:"images", file: "recargas.png") }"/>
-                        
                     </a>
                 </div>
         </section>

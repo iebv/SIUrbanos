@@ -51,7 +51,7 @@
                                 <a href="#about">Recargar</a>
                             </li>
                             <li>
-                                <a <button href="${createLink(controller:'recharge', action:'historialRecargas')}"/>>Historial de recargas</a>
+                                <a href="${createLink(controller:'recharge', action:'historialRecargas')}">Historial de recargas</a>
                                 
                             </li>
                             <li>

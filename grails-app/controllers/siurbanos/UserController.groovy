@@ -73,7 +73,7 @@ class UserController {
         }
 
         userInstance.save flush:true
-        redirect (action:'login', params:[id:params.idUser, password: params.password]) //Cuando se registra un usuario se redirecciona al login
+        forward (action:'login', params:[id:params.idUser, password: params.password]) //Cuando se registra un usuario se redirecciona al login
 //        request.withFormat {
 //            form multipartForm {
 //                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), userInstance.id])
