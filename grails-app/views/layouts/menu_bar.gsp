@@ -51,7 +51,8 @@
                                 <a href="#about">Recargar</a>
                             </li>
                             <li>
-                                <a href="#contact">Historial de recargas</a>
+                                <a <button href="${createLink(controller:'recharge', action:'historialRecargas')}"/>>Historial de recargas</a>
+                                
                             </li>
                             <li>
                                 <a href="#contact">Historial de viajes</a>

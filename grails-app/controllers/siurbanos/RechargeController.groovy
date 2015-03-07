@@ -10,6 +10,17 @@ class RechargeController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    
+     def historialRecargas(){
+        
+        //def rechargesList = Recharge.find("from Recharge as r where r.card = '${session.user.id}'")
+        List<Recharge> rechargesList = Recharge.findAllByCard(session.user.card)      
+        [recharges: rechargesList]
+        
+        
+    }
+    
+ 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Recharge.list(params), model:[rechargeInstanceCount: Recharge.count()]
@@ -73,6 +84,7 @@ class RechargeController {
         }
     }
 
+   
     @Transactional
     def delete(Recharge rechargeInstance) {
 
