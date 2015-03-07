@@ -3,7 +3,7 @@
     <meta name="layout" content="login_bar"/>       
 </head>
 
-<div class="container">
+<div class="container" style="margin-top: 250px;">
     <div class="row vertical-offset-100">
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">

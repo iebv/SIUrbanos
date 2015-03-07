@@ -1,6 +1,6 @@
 
 <head>
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'subscribe.css')}" type="text/css"> 
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'comprar.css')}" type="text/css"> 
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                     <input type="password" placeholder="Confirmar Password" class="form-control">
                 </div>
             </div>-->
-            <div class="form-group">
+            <!--<div class="form-group">
                 <label class="control-label col-xs-3">Nombre:</label>
                 <div class="col-xs-9">
                     <input type="text" placeholder="Nombre" class="form-control">
@@ -103,12 +103,12 @@
                         <input type="checkbox" value="agree">  Accepto <a href="#">Terminos y condiciones</a>.
                     </label>
                 </div>
-            </div>
+            </div>-->
             <br>
             <g:field type="hidden" value="${params.idUser}" name="idUser"/>
             <div class="form-group">
-                <div class="col-xs-offset-3 col-xs-9">
-                    <input type="submit" value="Enviar" class="btn btn-primary">
+                <div class="jumbotron">
+                    <input id= "btn-comprar" type="submit" value="Comprar" class="btn btn-success btn-lg">
                 </div>
             </div>
             

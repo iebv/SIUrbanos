@@ -37,8 +37,12 @@ class CardController {
         println card
         usuario.card = card
         usuario.save(flush:true)
+        redirect(action:'menu')
     }
 
+    def menu(){
+        
+    }
     def edit(Card cardInstance) {
         respond cardInstance
     }
