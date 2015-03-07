@@ -25,7 +25,7 @@
                     <tr>
                         <td>${recharge.card.idCard}</td>
                         <td>$ ${recharge.amountRecharge}</td>
-                        <td><g:formatDate format="yyyy-MM-dd" date="${recharge.dateRecharge}"/></td>
+                        <td><g:formatDate type="datetime" style="MEDIUM" date="${recharge.dateRecharge}"/></td>
                     </tr>
                 </g:each>
              
