@@ -14,7 +14,7 @@ registerSitemeshPreprocessMode()
 printHtmlPart(0)
 createTagBody(1, {->
 printHtmlPart(1)
-expressionOut.print(resource(dir: 'css', file: 'subscribe.css'))
+expressionOut.print(resource(dir: 'css', file: 'comprar.css'))
 printHtmlPart(2)
 })
 invokeTag('captureHead','sitemesh',4,[:],1)
@@ -23,6 +23,8 @@ createTagBody(1, {->
 printHtmlPart(4)
 expressionOut.print(resource(dir:"images", file: "tarjeta.png"))
 printHtmlPart(5)
+invokeTag('field','g',108,['type':("hidden"),'value':(params.idUser),'name':("idUser")],-1)
+printHtmlPart(6)
 })
 invokeTag('captureBody','sitemesh',1,[:],1)
 }
@@ -31,7 +33,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1424983834095L
+public static final long LAST_MODIFIED = 1425744973998L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

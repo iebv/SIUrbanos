@@ -48,7 +48,7 @@
                                 <a href="#">Inicio</a>
                             </li>
                             <li>
-                                <a href="#about">Recargar</a>
+                                <a href="${createLink(controller:'card', action:'recargar')}">Recargar</a>
                             </li>
                             <li>
                                 <a href="${createLink(controller:'recharge', action:'historialRecargas')}">Historial de recargas</a>

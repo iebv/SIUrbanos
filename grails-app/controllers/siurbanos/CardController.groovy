@@ -31,13 +31,25 @@ class CardController {
         def usuario = User.find("from User as u where u.idUser = '${params.idUser}'")
         def idCard = usuario.idUser
         def card = new Card(idCard: idCard)
-        card.save(flush:true)
         card.recargar(20000)
         card.recargar(10000)
         println card
         usuario.card = card
         usuario.save(flush:true)
-        redirect(action:'menu')
+        card.save(flush:true)
+        session.user?.card = card
+        redirect(action:'menu', params:[idUser:usuario.idUser])
+    }
+    
+    def recargar(){
+        
+        if(params.montoRecarga!=null){
+            def card = Card.findByIdCard(session.user.card.idCard)
+            card.recargar(Double.parseDouble(params.montoRecarga))
+            card.save(flush:true)
+            session.user.card = card
+        }
+        
     }
 
     def menu(){

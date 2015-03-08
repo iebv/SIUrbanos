@@ -20,9 +20,6 @@ class UserController {
     
     def login() {
         
-        println Card.list()
-        
-        
         def user = User.find("from User as u where u.idUser = '${params.id}' and u.password = '${params.password}'")
    
         if(user){
@@ -72,7 +69,7 @@ class UserController {
             return
         }
 
-        userInstance.save flush:true
+        userInstance.save(flush:true)
         forward (action:'login', params:[id:params.idUser, password: params.password]) //Cuando se registra un usuario se redirecciona al login
 //        request.withFormat {
 //            form multipartForm {
