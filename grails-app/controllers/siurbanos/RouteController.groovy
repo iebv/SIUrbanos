@@ -57,16 +57,22 @@ class RouteController {
             respond routeInstance.errors, view:'create'
             return
         }
+        
+        def card1 = routeInstance.card
+        card1.viajar(routeInstance.routeName)
+        card1.save(flush:true)
 
-        routeInstance.save flush:true
+        redirect (controller: 'route', action: 'index')
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.id])
-                redirect routeInstance
-            }
-            '*' { respond routeInstance, [status: CREATED] }
-        }
+        //routeInstance.save flush:true
+
+//        request.withFormat {
+//            form multipartForm {
+//                flash.message = message(code: 'default.created.message', args: [message(code: 'route.label', default: 'Route'), routeInstance.id])
+//                redirect routeInstance
+//            }
+//            '*' { respond routeInstance, [status: CREATED] }
+//        }
     }
 
     def edit(Route routeInstance) {

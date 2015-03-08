@@ -45,7 +45,7 @@
                                 <a href="#">SI Urbanos</a>
                             </li>
                             <li>
-                                <a href="#">Inicio</a>
+                                <a href="${createLink(controller:'card', action:'menu')}">Inicio</a>
                             </li>
                             <li>
                                 <a href="${createLink(controller:'card', action:'recargar')}">Recargar</a>

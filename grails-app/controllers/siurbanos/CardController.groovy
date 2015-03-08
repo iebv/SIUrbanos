@@ -45,8 +45,8 @@ class CardController {
         def usuario = User.find("from User as u where u.idUser = '${params.idUser}'")
         def idCard = usuario.idUser
         def card = new Card(idCard: idCard)
-        card.recargar(20000)
-        card.recargar(10000)
+        card.recargar(20000)//Recarga inicial al comprar la tarjeta
+        //card.recargar(10000)
         println card
         usuario.card = card
         usuario.save(flush:true)

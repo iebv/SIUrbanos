@@ -21,11 +21,9 @@ class Card {
     }
     
     def viajar(ruta){
-
         if(this.amount >= valorPasaje){
             this.addToRoutes(new Route(routeName: ruta, date: new Date()))
-            amount -= valorPasaje
-           
+            amount -= valorPasaje           
         }else println "No tiene saldo para realizar el viaje"
     }
 }
