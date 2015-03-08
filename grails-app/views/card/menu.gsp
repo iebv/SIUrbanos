@@ -30,7 +30,7 @@
             <div class="container">
                 <div class="jumbotron text-center">
                     <h4>Historial de viajes </h4>
-                    <a href="#">
+                    <a href="${createLink(controller:'route', action:'historialRutas')}">
                         <img src="${resource(dir:"images", file: "viajes.png") }"/>
                     </a>
                 </div>

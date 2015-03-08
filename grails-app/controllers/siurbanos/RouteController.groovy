@@ -14,6 +14,15 @@ class RouteController {
         params.max = Math.min(max ?: 10, 100)
         respond Route.list(params), model:[routeInstanceCount: Route.count()]
     }
+    
+    def historialRutas(){
+        
+        //def rechargesList = Recharge.find("from Recharge as r where r.card = '${session.user.id}'")
+        List<Route> routesList = Route.findAllByCard(session.user.card)      
+        [routes: routesList]
+        
+        
+    }
 
     def show(Route routeInstance) {
         respond routeInstance
