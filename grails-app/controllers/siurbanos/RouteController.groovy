@@ -10,6 +10,19 @@ class RouteController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def beforeInterceptor = [action:this.&auth, 
+                           except:["historialRutas"]]
+                       
+    def auth() {
+        String usuario = session?.user?.rol
+     
+        if( !(usuario== "admin") ){
+            flash.message = "Acceso denegado."
+            redirect(uri:"/")
+            return false
+        }
+        
+    }
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Route.list(params), model:[routeInstanceCount: Route.count()]
@@ -18,9 +31,10 @@ class RouteController {
     def historialRutas(){
         
         //def rechargesList = Recharge.find("from Recharge as r where r.card = '${session.user.id}'")
+        if(session.user){
         List<Route> routesList = Route.findAllByCard(session.user.card)      
         [routes: routesList]
-        
+        }
         
     }
 

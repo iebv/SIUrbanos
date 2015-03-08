@@ -9,6 +9,20 @@ import grails.transaction.Transactional
 class RechargeController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    
+    def beforeInterceptor = [action:this.&auth, 
+                           except:["historialRecargas"]]
+                       
+    def auth() {
+        String usuario = session?.user?.rol
+     
+        if( !(usuario== "admin") ){
+            flash.message = "Acceso denegado."
+            redirect(uri:"/")
+            return false
+        }
+        
+    }
 
     
      def historialRecargas(){

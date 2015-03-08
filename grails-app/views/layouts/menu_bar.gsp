@@ -55,7 +55,7 @@
                                 
                             </li>
                             <li>
-                                <a href="#contact">Historial de viajes</a>
+                                <a href="${createLink(controller:'route', action:'historialRutas')}">Historial de viajes</a>
                             </li>
                         </ul>
                     </div>

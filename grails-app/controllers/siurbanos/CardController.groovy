@@ -10,6 +10,20 @@ class CardController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
     
+    def beforeInterceptor = [action:this.&auth, 
+                           except:["comprar","save","menu","recargar"]]
+                       
+    def auth() {
+        String usuario = session?.user?.rol
+     
+        if( !(usuario== "admin") ){
+            flash.message = "Acceso denegado."
+            redirect(uri:"/")
+            return false
+        }
+        
+    }
+    
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Card.list(params), model:[cardInstanceCount: Card.count()]
