@@ -56,7 +56,7 @@ class UserController {
             return false
         }
         
-  }
+    }
     @Transactional
     def save(User userInstance) {
         if (userInstance == null) {
