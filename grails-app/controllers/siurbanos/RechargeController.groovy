@@ -28,7 +28,7 @@ class RechargeController {
      def historialRecargas(){
         
         //def rechargesList = Recharge.find("from Recharge as r where r.card = '${session.user.id}'")
-        List<Recharge> rechargesList = Recharge.findAllByCard(session.user.card)      
+        List<Recharge> rechargesList = Recharge.findAllByCard(session?.user?.card)      
         [recharges: rechargesList]
         
         
