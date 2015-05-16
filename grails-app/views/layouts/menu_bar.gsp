@@ -11,7 +11,9 @@
         <div class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="#">SI Urbanos</a>
+                    <a class="navbar-brand" href="#">SI Urbanos</a><br><br><br>
+                    <h6 style="margin-top: 0px;">Backend Tomcat: <%= java.net.InetAddress.getLocalHost().getCanonicalHostName()%></h6> 
+                    <h6>Session ID: <%=request.getSession().getId()%></h6>
                 </div>
                 
                     <div class="navbar-collapse collapse" id="navbar-main">
