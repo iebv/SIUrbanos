@@ -2,7 +2,7 @@ package siurbanos
 
 //import javax.smartcardio.Card
 
-class User {
+class User implements Serializable{
     String idUser
     String userName
     String password
