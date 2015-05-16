@@ -8,7 +8,8 @@ class BootStrap {
     def init = { servletContext ->
         
         //Usuario administrador
-        new User(idUser:"1234567890", userName:"Administrador", password:"admin", rol:"admin").save()
+        def admin = new User(idUser:"1234567890", userName:"Administrador", password:"admin", rol:"admin").save()
+        agregarTarjeta(admin);
         
         //Usuario regular
         def user_1 = new User(idUser:"123", userName:"123", password:"12345", rol:"user")
