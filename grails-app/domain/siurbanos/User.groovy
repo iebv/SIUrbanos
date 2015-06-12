@@ -10,10 +10,10 @@ class User implements Serializable{
     Card card 
     
     static constraints = {
-        idUser(blank:false, size: 1..10, matches: "[1-9][0-9]*", unique:true)
-        userName(blank:false)        
+        ///idUser(blank:false, size: 1..10, matches: "[1-9][0-9]*", unique:true)
+        //userName(blank:false)        
         //email email:true,blank:false
-        password(password:true, size: 5..15)
+        //password(password:true, size: 5..15)
         card(nullable:true)
         
     }

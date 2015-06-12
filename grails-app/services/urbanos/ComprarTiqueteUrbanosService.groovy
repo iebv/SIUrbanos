@@ -8,11 +8,11 @@ import javax.jws.*
 import javax.xml.ws.*
 import javax.xml.bind.annotation.*
 
-@WebService (targetNamespace="http://siurbanos/")
+@WebService (targetNamespace="http://SIUrbanos/")
 @SOAPBinding(parameterStyle=SOAPBinding.ParameterStyle.BARE)
 class ComprarTiqueteUrbanosService {
 
-    @WebMethod(operationName = "existUser")
+    @WebMethod(operationName = "ExistenciaUsuario", action="http://SIUrbanos/ExistenciaUsuario")
     public boolean ExistenciaUsuario(@WebParam(name = "id") String id, @WebParam(name = "password") String password) {
         def user = User.find("from User as u where u.idUser = '${id}' and u.password = '${password}'")
         if (user){
@@ -22,8 +22,8 @@ class ComprarTiqueteUrbanosService {
         else return false
     }
     
-    @WebMethod(operationName = "crearUser")
-    public boolean crearUsuario (@WebParam(name = "id") String id, @WebParam(name = "password") String password){
+    @WebMethod(operationName = "CrearUsuario", action="http://SIUrbanos/CrearUsuario")
+    public boolean CrearUsuario (@WebParam(name = "id") String id, @WebParam(name = "password") String password){
         
         def user = new User(idUser:id, userName:id, password:password, rol:"user")
         agregarTarjeta(user)
