@@ -11,7 +11,7 @@ import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.ParameterStyle;
 
 @WebService (targetNamespace="http://SIUrbanos/")
-@SOAPBinding(style=Style.RPC, parameterStyle=ParameterStyle.WRAPPED)
+@SOAPBinding(style=Style.RPC, parameterStyle=ParameterStyle.BARE)
 class ComprarTiqueteUrbanosService {
     static expose = ['cxfjax']
     @WebMethod(operationName = "ExistenciaUsuario", action="http://SIUrbanos/ExistenciaUsuario")
