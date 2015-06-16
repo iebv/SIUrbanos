@@ -139,13 +139,13 @@
     </init-param>
     </servlet>
   <servlet>
-    <servlet-name>grails-errorhandler</servlet-name>
-    <servlet-class>org.codehaus.groovy.grails.web.servlet.ErrorHandlingServlet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>CxfServlet</servlet-name>
     <servlet-class>org.grails.cxf.servlet.GrailsCxfServlet</servlet-class>
     <load-on-startup>10</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>grails-errorhandler</servlet-name>
+    <servlet-class>org.codehaus.groovy.grails.web.servlet.ErrorHandlingServlet</servlet-class>
   </servlet>
 
     <servlet-mapping>
@@ -153,12 +153,12 @@
         <url-pattern>*.gsp</url-pattern>
     </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>grails-errorhandler</servlet-name>
-    <url-pattern>/grails-errorhandler</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>CxfServlet</servlet-name>
     <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>grails-errorhandler</servlet-name>
+    <url-pattern>/grails-errorhandler</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>grails</servlet-name>

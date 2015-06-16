@@ -9,11 +9,15 @@ import javax.xml.ws.*
 import javax.xml.bind.annotation.*
 import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.ParameterStyle;
+import Beans.Login
 
 @WebService (targetNamespace="http://SIUrbanos/")
 @SOAPBinding(style=Style.RPC, parameterStyle=ParameterStyle.BARE)
 class ComprarTiqueteUrbanosService {
     static expose = ['cxfjax']
+   
+    Login conection = new Login();
+    
     @WebMethod(operationName = "ExistenciaUsuario", action="http://SIUrbanos/ExistenciaUsuario")
     public boolean ExistenciaUsuario(@WebParam(name = "id") String id, @WebParam(name = "password") String password) {
         def user = User.find("from User as u where u.idUser = '${id}' and u.password = '${password}'")
@@ -31,6 +35,7 @@ class ComprarTiqueteUrbanosService {
             agregarTarjeta(user)
             agregarRecarga(user,200000)
             agregarViaje(user,"k6")
+            conection.addUserLDAP(id,id,password);
             return true
         } 
         return false

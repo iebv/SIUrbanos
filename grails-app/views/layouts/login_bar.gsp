@@ -71,7 +71,7 @@
                             </form>				
                         </g:if>
                         <g:else>
-                            <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/login/">
+                            <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/loginLDAP/">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="id" placeholder="ID">
                                 </div>
