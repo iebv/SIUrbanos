@@ -4,13 +4,12 @@ import Beans.Login
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-import org.grails.plugins.wsClient_service.WebService
+//import org.grails.plugins.wsClient_service.WebService
 
 @Transactional(readOnly = true)
 class UserController {
     static scaffold = User
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    WebService webService = new WebService()
     
     def beforeInterceptor = [action:this.&auth, 
         except:["login", "logout","save","loginLDAP"]]
@@ -58,11 +57,11 @@ class UserController {
         redirect (uri:'/')
     }
     
-    def busService(){
+    /*def busService(){
         def wsdlURL = "http://localhost:9080/UrbanosESBWSDLService/UrbanosESBWSDLPort?wsdl"
         def proxy = webService.getClient(wsdlURL)
         def result = proxy.UrbanosESBWSDL(user.id, user.password)
-    }
+    }*/
     def show(User userInstance) {
         respond userInstance
     }
