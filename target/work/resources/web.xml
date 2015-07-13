@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" metadata-complete="true" version="3.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    
+    <distributable/>
 
     <display-name>/SIUrbanos-development-0.1</display-name>
 
@@ -137,6 +139,11 @@
     </init-param>
     </servlet>
   <servlet>
+    <servlet-name>CxfServlet</servlet-name>
+    <servlet-class>org.grails.cxf.servlet.GrailsCxfServlet</servlet-class>
+    <load-on-startup>10</load-on-startup>
+  </servlet>
+  <servlet>
     <servlet-name>grails-errorhandler</servlet-name>
     <servlet-class>org.codehaus.groovy.grails.web.servlet.ErrorHandlingServlet</servlet-class>
   </servlet>
@@ -145,6 +152,10 @@
         <servlet-name>gsp</servlet-name>
         <url-pattern>*.gsp</url-pattern>
     </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CxfServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>grails-errorhandler</servlet-name>
     <url-pattern>/grails-errorhandler</url-pattern>
@@ -172,5 +183,4 @@
     <error-code>500</error-code>
     <location>/grails-errorhandler</location>
   </error-page>
-
 </web-app>

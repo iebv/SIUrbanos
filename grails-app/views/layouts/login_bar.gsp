@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="${resource(dir: 'css', file: 'login.css')}" type="text/css"> 
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css"> 
         <g:layoutHead/>
     </head>
     <body>
@@ -22,7 +22,16 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">SI Urbanos</a>
+                    <a class="navbar-brand" href="#">SI Urbanos</a><br><br><br>
+                    <h6 style="margin-top: 0px;">Backend Tomcat: <%= java.net.InetAddress.getLocalHost().getCanonicalHostName()%></h6> 
+                    <h6>Session ID: <%=request.getSession().getId()%></h6> 
+                        <% Long counter = (Long) request.getSession().getAttribute("counter");
+                            if (counter == null) {
+                                counter = 0l;
+                            }
+                            counter++;
+                            request.getSession().setAttribute("counter", counter);%> 
+                    <h6>Contador en ${counter}</h6> 
                 </div>
                 <center>
                     <div class="navbar-collapse collapse" id="navbar-main">
@@ -57,20 +66,20 @@
                         </ul>-->
                         <g:if test="${session.user}">
                             <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/logout/">
-                            
-                            <button type="submit" class="btn btn-default">Log out</button>
+
+                                <button type="submit" class="btn btn-default">Log out</button>
                             </form>				
                         </g:if>
                         <g:else>
-                        <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/login/">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="id" placeholder="ID">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="password" placeholder="Password">
-                            </div>
-                            <button type="submit" class="btn btn-default">Log In</button>
-                        </form>
+                            <form method="POST" class="navbar-form navbar-right" action="/SIUrbanos/user/login/">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="id" placeholder="ID">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="password" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-default">Log In</button>
+                            </form>
                         </g:else>
                         <g:if test="${flash.message}">
                             <div class="message" role="status">${flash.message}</div>

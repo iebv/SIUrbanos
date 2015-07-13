@@ -49,7 +49,8 @@
 					
 						<td>${fieldValue(bean: userInstance, field: "card")}</td>
 					
-						<td><g:formatBoolean boolean="${userInstance.rol}" /></td>
+						<td>${fieldValue(bean: userInstance, field: "rol")}</td>
+					
 					
 					</tr>
 				</g:each>
